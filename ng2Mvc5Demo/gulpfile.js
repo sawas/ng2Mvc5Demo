@@ -1,4 +1,5 @@
-﻿var ts = require('gulp-typescript');
+﻿/// <binding BeforeBuild='ts' Clean='clean' />
+var ts = require('gulp-typescript');
 var gulp = require('gulp');
 var clean = require('gulp-clean');
 
@@ -10,15 +11,16 @@ gulp.task('clean', function () {
         .pipe(clean());
 });
 
-gulp.task("scriptsNStyles", function() {
+gulp.task("scriptsNStyles", function () {
     gulp.src([
             'core-js/client/*.js',
             'systemjs/dist/*.js',
             'reflect-metadata/*.js',
             'rxjs/**',
             'zone.js/dist/*.js',
-            '@angular/**/bundles/*.js',            
-            'bootstrap/dist/js/*.js'
+            '@angular/**/bundles/*.js',
+            'bootstrap/dist/js/*.js',
+            'angular-in-memory-web-api/**/bundles/*.js'
     ], {
         cwd: "node_modules/**"
     })
@@ -28,6 +30,7 @@ gulp.task("scriptsNStyles", function() {
 var tsProject = ts.createProject('tsScripts/tsconfig.json', {
     typescript: require('typescript')
 });
+
 gulp.task('ts', function (done) {
     //var tsResult = tsProject.src()
     var tsResult = gulp.src([

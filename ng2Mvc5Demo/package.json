@@ -18,7 +18,7 @@
     "core-js": "^2.4.1",
     "ie-shim": "^0.1.0",
     "reflect-metadata": "^0.1.10",
-    "rxjs": "5.0.1",
+    "rxjs": "5.4.2",
     "systemjs": "^0.20.12",
     "zone.js": "^0.8.4"
   },
